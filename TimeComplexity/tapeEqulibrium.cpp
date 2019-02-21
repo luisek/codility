@@ -38,7 +38,7 @@ int solution2(vector<int>& A) //92% ostatni test dv jest wciąż źle ...
     {
         sum += a;
     }
-    auto N = A.size() == 2? 1 : A.size();
+    auto N = A.size() == 2 ? 1 : A.size();
     for(auto i = 0; i < N; ++i)
     {
         sumP += A[i];
