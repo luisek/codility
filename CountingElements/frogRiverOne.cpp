@@ -43,6 +43,20 @@ int solution2(int X, std::vector<int>& A) //54%
     return -1;
 }
 
+int solution3(int X, std::vector<int>& A) //54% performance 0% bez pętli można chyba to zrobić przypisać odrazu do set'a
+{
+    for(auto i = X - 1; i < A.size(); ++i)
+    {
+        std::unordered_set<int> asset(A.begin(), A.begin()+(i+1));
+        auto n = asset.size();
+        if(n == X)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char* argv[])
 {
     std::vector<int> arr{1,3,1,4,2,3,5,4};
