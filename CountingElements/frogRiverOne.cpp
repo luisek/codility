@@ -57,15 +57,31 @@ int solution3(int X, std::vector<int>& A) //54% performance 0% bez pętli można
     return -1;
 }
 
+int solution4(int X, std::vector<int>& A) // correctnes100%  performance 100% O(N)
+{
+    std::unordered_set<int> asset;
+    for(auto i = 0; i < A.size(); ++i)
+    {
+        if(A[i] <= X)
+            asset.insert(A[i]);
+        auto n = asset.size();
+        if(n == X)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char* argv[])
 {
     std::vector<int> arr{1,3,1,4,2,3,5,4};
-    std::cout <<solution2(5,arr) <<std::endl;
+    std::cout <<solution4(5,arr) <<std::endl;
 
     std::vector<int> arr2{1, 3, 1, 3, 2, 1, 3};
-    std::cout<< solution2(3, arr2)<<std::endl;
+    std::cout<< solution4(3, arr2)<<std::endl;
     std::vector<int> arr3{1};
-    std::cout<< solution2(1, arr3)<<std::endl;
+    std::cout<< solution4(1, arr3)<<std::endl;
 
     return 0;
 }
