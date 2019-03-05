@@ -10,7 +10,7 @@ int solution(vector<int>& A) //55%
 {
     set<int> asset(A.begin(), A.end());
     auto rbegin = asset.rbegin();
-    if(*rbegin <=0)
+    if(*rbegin < 0)
         return 1;
     auto index = 1;
     for(const auto& a : asset)
