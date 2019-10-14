@@ -21,7 +21,13 @@ int passedElement(const vector<int>& A)
     {
         P[i] = P[i-1] + A[i-1];
     }
-    return P[P.size()+1];
+    /*cout <<"tab passed elem\n";
+     for(const auto& i : P)
+        cout <<i <<',';
+    cout <<endl;
+    cout <<"passedElement: " <<P[P.size()] <<endl;
+    cout <<"size: " <<P.size() <<endl; */
+    return P[P.size() - 1];
 }
 
 int solution(vector<int>& A)
@@ -32,14 +38,21 @@ int solution(vector<int>& A)
     while(iterFirst != A.end())
     {
         vector<int> tmp(iterFirst, iterLast);
+        /* for(const auto& i : tmp)
+            cout <<i <<',';
+        cout <<endl; */
         result += passedElement(tmp);
         auto newIter = ++iterFirst;
-        iterFirst = find(tmp.begin(), iterLast);
+        iterFirst = find(newIter, iterLast, 0);
     }
-    return result;
+    return result > 1000000000 ? -1 : result;
 }
 
-int main(int argc, char* argv)
+int main(int argc, char* argv[])
 {
+    vector<int> tmp = {0,1,0,1,1};
+    cout << solution(tmp) <<endl;
+    vector<int> tmp2 = {1,0,1,1,1,0,1,1,0};
+    cout << solution(tmp2) <<endl;
     return 0;
 }
