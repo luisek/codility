@@ -37,6 +37,8 @@ int solution(vector<int>& A)
     auto iterLast = A.end();
     while(iterFirst != A.end())
     {
+        if(result > 1000000000)
+            return -1;
         vector<int> tmp(iterFirst, iterLast);
         /* for(const auto& i : tmp)
             cout <<i <<',';
@@ -45,7 +47,7 @@ int solution(vector<int>& A)
         auto newIter = ++iterFirst;
         iterFirst = find(newIter, iterLast, 0);
     }
-    return result > 1000000000 ? -1 : result;
+    return result;
 }
 
 int main(int argc, char* argv[])

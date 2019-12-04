@@ -14,7 +14,11 @@ def mushrooms(A, k, m):
     pref = prefix_sum(A)
     for p in range (min(m, k) + 1):
         left_pos = k - p
+        print ("k, p ", k, p)
+        print("left_pos: ",left_pos)
+        print("max: ", max(k, k + m - 2 *p))
         right_pos = min(n - 1, max(k, k + m - 2 *p))
+        print("right_pos: ", right_pos)
         result = max(result, count_total(pref, left_pos, right_pos))
     for p in range(min(m + 1, n - k )):
         right_pos = k + p
@@ -25,6 +29,6 @@ def mushrooms(A, k, m):
 if __name__ == "__main__":
     print(mushrooms([2,3,7,5,1,3,9], 4, 6))
     print("prefix sum")
-    A = [1,2,3,4,5]
+    A = [2,3,7,5,1,3,9]
     print(prefix_sum(A))
     print(count_total(prefix_sum(A), 0, 2))

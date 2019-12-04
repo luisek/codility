@@ -1,5 +1,12 @@
 #
 
+def counting(A, m):
+    n = len(A)
+    count = [0] * (m + 1)
+    for k in range(n):
+        count[A[k]] += 1
+    return count
+
 def slow_solution(A, B, m):
     n = len(A)
     sum_a = sum(A)
@@ -15,8 +22,24 @@ def slow_solution(A, B, m):
             sum_b += change
     return False
 
-arrA = [1,2,3,4,5]
-arrB = [2,2,6,1,2]
+def fast_solution(A, B, m):
+    n = len(A)
+    sum_a = sum(A)
+    sum_b = sum(B)
+    d = sum_b - sum_a
+    if d % 2 == 1:
+        return False
+    d //= 2
+    count = counting(A, m)
+    for i in range(n):
+        if 0 <= B[i] - d and B[i] - d <= m and count [B[i]-d] > 0:
+            return True
+    return False
+
+arrA = [4,1,2]
+arrB = [1,1,3]
 
 if __name__ == "__main__":
+    print(counting([1,2,1,2,3,4],6))
+
     print(slow_solution(arrA, arrB, 12))
