@@ -13,7 +13,9 @@ int solution(int A, int B, int K)
         i = A + div;
     if(A == B == K)
         return K;
-    if (1 == K)
+    else if(K==B)
+        return K/B;
+    else if (1 == K)
         return B-A;
     for(i; i <= B; i+= K)
     {

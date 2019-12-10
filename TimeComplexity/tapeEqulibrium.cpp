@@ -48,7 +48,7 @@ int solution2(vector<int>& A) //92% ostatni test dv jest wciąż źle ...
     return *min_element(minimals.begin(), minimals.end());
 }
 
-int solution3(vector<int>& A)
+int solution3(vector<int>& A) //100%
 {
     unordered_set<int> asset;
     vector<int> P(A.size() + 1, 0);
