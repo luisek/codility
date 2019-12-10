@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 using namespace std;
 
 vector<int> prefixSum(const vector<int>& A)
@@ -11,16 +12,14 @@ vector<int> prefixSum(const vector<int>& A)
     }
     return prefSum;
 }
+
+/*
    0 1 2 3
   [2,3,1,4]
  0 1 2 3 4
 [0,2,5,6,10]
 p = 1; q = 2
-
-sliceSum(1,A.size(), tab)
-[0,2,5,6,10]
-p = 1 q = 4
-10 - 5 = 5
+*/
 
 int sliceSum(int P, int Q, const vector<int>& Pref)
 {
@@ -29,10 +28,18 @@ int sliceSum(int P, int Q, const vector<int>& Pref)
 
 int solution(vector<int>& A)
 {
-
+    int p=0, q = 1;
+    auto vect = prefixSum(A);
+    for(int p = 0, q = 1; q < A.size(); ++q, ++q)
+    {
+        for(; q < A.size(); ++q)
+            cout << sliceSum(p, A.size()+1, vect) <<'\n';
+    }
 }
 
 int main()
 {
+    vector<int> tmp{4,2,2,5,1,5,8};
+    assert(1 == solution(tmp));
     return 0;
 }
