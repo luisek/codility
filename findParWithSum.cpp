@@ -27,7 +27,7 @@ bool FindPairWithSum(const vector<int>& data, int sum)
 
 bool hasPairWithSum(const vector<int> data, int sum)
 {
-    nordered_set<int> _set;
+    unordered_set<int> _set;
     for (const auto& value : data)
     {
         if (_set.find(value) != _set.end())

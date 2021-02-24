@@ -48,7 +48,6 @@ int solution2(const string &S)
         return 0;
 }
 
-
 int main(int argc, char* argv[])
 {
     cout <<solution2("(()") <<'\n';

@@ -24,7 +24,7 @@ vector<int> solution(vector<int>& A, int K)
 
 vector<int> solution2(vector<int>&A, int K)
 {
-    rotate(A.begin(), A.begin() + K -1, A.end());
+    rotate(A.begin(), A.begin() + K - 1, A.end());
     return A;
 }
 
